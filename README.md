@@ -1,6 +1,6 @@
 ## ✨ Moris Assignment
 
-Moris Assignment with Laravel 10 and MySql.
+Moris Assignment with Laravel 10  and Livewire and MySql.
 
 
 ## 🚀 How to Use

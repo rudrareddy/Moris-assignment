@@ -18,7 +18,7 @@ class DayCalendar extends Component
       $this->yesterday = Carbon::now()->subday();
       $this->times = Time::with('timeintervals')->get();
       $this->events = Event::whereDate('start_date_time',$this->today)->get();
-      
+
     }
 
     public function prevDay($id){
@@ -27,8 +27,6 @@ class DayCalendar extends Component
        $this->times = Time::with('timeintervals')->get();
        $this->events = Event::whereDate('start_date_time',$this->today)->get();
        return $this->render();
-      // $this->emitSelf('DayCalendar','some-event');
-       //$this->emit('refresh');
     }
 
     public function nextDay($id){
@@ -37,11 +35,7 @@ class DayCalendar extends Component
        $this->times = Time::with('timeintervals')->get();
        $this->events = Event::whereDate('start_date_time',$this->today)->get();
        return $this->render();
-      // $this->emitSelf('DayCalendar','some-event');
-       //$this->emit('refresh');
     }
-
-
 
     public function render()
     {

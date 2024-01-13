@@ -48,7 +48,7 @@
                  $end_time = date('h:ia',strtotime($event->end_date_time));
                  $time_interval = $start_time.'-'.$end_time;
               @endphp
-
+             
             @if($time_interval == $interval->time_interval)
             <span class="b_time lightprpl full_height show">{{$event->meeting_address}}</span>
             @else

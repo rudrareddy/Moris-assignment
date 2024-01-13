@@ -21,13 +21,10 @@ Route::get('/', function () {
     return view('site.home',compact('value'));
 });
 
+//calendar filters route
 Route::get('calendar/{value}',function($value){
   $now = Carbon::now();
-
   $start = $now->startOfMonth(Carbon::SUNDAY)->format('Y-m-d');
-  //return $start;
-  
-  //return $dates->toArray();
    return view('site.home',compact('value'));
 });
 Route::get('/dashboard', function () {

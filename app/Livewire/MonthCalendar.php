@@ -16,12 +16,9 @@ class MonthCalendar extends Component
     public function mount(){
        $this->start_month = new Carbon('first day of this month');
        $this->end_month = new Carbon('last day of this month');
-      //$this->start_month = '2024-04-01';
-      //$this->end_month = '2024-04-30';
-  //  return date('Y-m-d',strtotime('-7 day',strtotime($start_week)));
-      $this->month_dates =  CarbonPeriod::create($this->start_month,$this->end_month)->toArray();
-      $this->times = Time::with('timeintervals')->get();
-      $this->events = Event::whereDate('start_date_time','>=',$this->start_month)->whereDate('start_date_time','<=',$this->end_month)->get();
+       $this->month_dates =  CarbonPeriod::create($this->start_month,$this->end_month)->toArray();
+       $this->times = Time::with('timeintervals')->get();
+       $this->events = Event::whereDate('start_date_time','>=',$this->start_month)->whereDate('start_date_time','<=',$this->end_month)->get();
     }
 
     public function prevMonth($id){

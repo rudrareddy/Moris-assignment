@@ -25,7 +25,8 @@ class WeekCalendar extends Component
        $this->end_week = date('Y-m-d',strtotime('+6 day',strtotime($this->start_week)));
        //dd($this->end_week);
        $this->times = Time::with('timeintervals')->get();
-       //this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->events =Event::whereDate('start_date_time','>=',$this->start_week)->whereDate('start_date_time','<=',$this->end_week)->get();
+
        return $this->render();
     }
 
@@ -35,7 +36,8 @@ class WeekCalendar extends Component
        $this->end_week = date('Y-m-d',strtotime('+6 day',strtotime($this->start_week)));
        //dd($this->end_week);
        $this->times = Time::with('timeintervals')->get();
-       //this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->events = Event::whereDate('start_date_time','>=',$this->start_week)->whereDate('start_date_time','<=',$this->end_week)->get();
+       // dd($this->events);
        return $this->render();
     }
 
