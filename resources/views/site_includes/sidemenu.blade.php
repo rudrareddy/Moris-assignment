@@ -8,7 +8,7 @@
     <ul class="flex-column mb-auto">
       <li>
         <div class="list">
-          <img src="images/menu/my-events.svg" alt="" />
+          <img src="{{asset('site/images/menu/my-events.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">My Events</a>
             <a href="#" class="sub-ttl">Create an Event</a>
@@ -20,7 +20,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/my-calendar.svg" alt="" />
+          <img src="{{asset('site/images/menu/my-calendar.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">My Calendar</a>
             <a href="#" class="sub-ttl">My Calendar</a>
@@ -31,7 +31,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/website-meeting.svg" alt="" />
+          <img src="{{asset('site/images/menu/website-meeting.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">Website Meeting</a>
             <a href="#" class="sub-ttl">Upcoming Meetings</a>
@@ -42,7 +42,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/settings.svg" alt="" />
+          <img src="{{asset('site/images/menu/settings.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">Settings</a>
             <a href="#" class="sub-ttl">Calendar Settings</a>
@@ -53,7 +53,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/team.svg" alt="" />
+          <img src="{{asset('site/images/menu/team.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">Team</a>
             <a href="#" class="sub-ttl">All Team</a>
@@ -63,7 +63,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/my-account.svg" alt="" />
+          <img src="{{asset('site/images/menu/my-account.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">My Account</a>
             <a href="#" class="sub-ttl">Billing</a>
@@ -75,7 +75,7 @@
       </li>
       <li>
         <div class="list">
-          <img src="images/menu/add-on.svg" alt="" />
+          <img src="{{asset('site/images/menu/add-on.svg')}}" alt="" />
           <div class="mnu-text">
             <a href="#" class="ttl">Add On</a>
             <a href="#" class="sub-ttl">moProPulse</a>
@@ -91,19 +91,19 @@
     <ul class="bottom flex-column" style="display: none;">
       <li>
         <div class="list">
-          <a href="#" class="ttl"><img src="images/menu/subscription.svg" class="mtm4" alt="" />
+          <a href="#" class="ttl"><img src="{{asset('site/images/menu/subscription.svg')}}" class="mtm4" alt="" />
             <span>Subscription</span></a>
         </div>
       </li>
       <li>
         <div class="list">
-          <a href="#" class="ttl"><img src="images/menu/help-circle.svg" class="mtm4" alt="" /> <span>Help
+          <a href="#" class="ttl"><img src="{{asset('site/images/menu/help-circle.svg')}}" class="mtm4" alt="" /> <span>Help
               & Support</span></a>
         </div>
       </li>
       <li>
         <div class="list">
-          <a href="#" class="ttl"><img src="images/menu/ind-flag.svg" class="mtm4" alt="" />
+          <a href="#" class="ttl"><img src="{{asset('site/images/menu/ind-flag.svg')}}" class="mtm4" alt="" />
             <span>INDIA</span></a>
         </div>
       </li>

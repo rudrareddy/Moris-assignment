@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('site.home',compact('value'));
 });
 
-//calendar filters route
+//calendar filters routes
 Route::get('calendar/{value}',function($value){
   $now = Carbon::now();
   $start = $now->startOfMonth(Carbon::SUNDAY)->format('Y-m-d');
