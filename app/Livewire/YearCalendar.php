@@ -23,7 +23,7 @@ class YearCalendar extends Component
        $this->start_year =date('Y-m-d', strtotime('first day of january',strtotime($year)));
        //dd($this->start_year);
        $this->end_year= date('Y-m-d', strtotime('last day of december',strtotime($year)));
-       //dd($this->end_month);
+       //dd($this->end_year);
        return $this->render();
     }
 

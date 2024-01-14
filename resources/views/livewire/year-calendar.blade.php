@@ -55,6 +55,7 @@ use App\Models\Event;
                $events = Event::select('id','start_date_time','end_date_time')->whereDate('start_date_time','>=',$start_month)->whereDate('end_date_time','<=',$end_month)->get();
 
                @endphp
+
                <!-- firsr row start here -->
                <div class="full_row days_row">
                 @if(date('D',strtotime($start_month)) == "Sun")
@@ -415,6 +416,7 @@ use App\Models\Event;
                                           @endif
                                      @endforeach
                                    @endif
+
                                    @if(date('D',strtotime($start_month)) == "Tue")
                                    @php $empty_days = date('d',strtotime($end_month))- 27; @endphp
                                      @foreach($month_dates as  $date)
@@ -479,53 +481,46 @@ use App\Models\Event;
                                         @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
                                       </div>
                                       @endif
-
                                       @endif
                                    @endforeach
-                                   @php $last_day = date('d',strtotime($end_month)) @endphp
-                                   @if($empty_days < 8)
-                                   @for($i=$empty_days;$i-7;$i++)
-                                   <div class="td @foreach($events as $event)
-                                     @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
-                                   </div>
-                                   @endfor
-                                   @endif
+
                                    @endif
                                  </div>
                                 <!-- fifth row ends here -->
 
-
                                 <!-- sixth row starts here -->
 
                                 <div class="full_row days_row">
-                                  @if(date('D',strtotime($start_month)) == "Fri")
-                                  @php $empty_days = date('d',strtotime($end_month))- 30; @endphp
+                                @if(date('D',strtotime($start_month)) == "Fri")
+                                @php $empty_days = date('d',strtotime($end_month))- 30; @endphp
 
-                                        @foreach($month_dates as $date)
-                                              @if($loop->index >29)
-                                              <div class="td @foreach($events as $event)
-                                                @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
-                                              </div>
-                                              @endif
-                                        @endforeach
+                                      @foreach($month_dates as $date)
+                                            @if($loop->index >29)
+                                            <div class="td @foreach($events as $event)
+                                              @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
+                                            </div>
+                                            @endif
+                                      @endforeach
 
-                                  @endif
+                                @endif
 
-                                  @if(date('D',strtotime($start_month)) == "Sat")
-                                  @php $empty_days = date('d',strtotime($end_month))- 30; @endphp
-                                  @foreach($month_dates as $date)
-                                        @if($loop->index >28)
-                                        <div class="td @foreach($events as $event)
-                                          @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
-                                        </div>  
-                                        @endif
-                                  @endforeach
+                                @if(date('D',strtotime($start_month)) == "Sat")
+                                @php $empty_days = date('d',strtotime($end_month))- 30; @endphp
+                                @foreach($month_dates as $date)
+                                      @if($loop->index >28)
+                                      <div class="td @foreach($events as $event)
+                                        @if(date('Y-m-d',strtotime($event->start_date_time)) == date('Y-m-d',strtotime($date))) booked @endif @endforeach">{{date('d',strtotime($date))}}
+                                      </div>
+                                      @endif
+                                @endforeach
 
-                                  @endif
-
-
+                                @endif
                                 </div>
                                 <!-- sixth row ends here -->
+
+
+
+
 
 
 
