@@ -10,8 +10,7 @@ use App\Models\Event;
 class MonthCalendar extends Component
 {
 
-  public $start_month,$end_month,$times,$events,$month_dates;
-
+    public $start_month,$end_month,$times,$events,$month_dates;
 
     public function mount(){
        $this->start_month = new Carbon('first day of this month');
@@ -19,6 +18,7 @@ class MonthCalendar extends Component
        $this->month_dates =  CarbonPeriod::create($this->start_month,$this->end_month)->toArray();
        $this->times = Time::with('timeintervals')->get();
        $this->events = Event::whereDate('start_date_time','>=',$this->start_month)->whereDate('start_date_time','<=',$this->end_month)->get();
+       //dd($this->events);
     }
 
     public function prevMonth($id){
@@ -30,7 +30,7 @@ class MonthCalendar extends Component
        //dd($this->end_week);
        $this->month_dates =  CarbonPeriod::create($this->start_month,$this->end_month)->toArray();
        $this->times = Time::with('timeintervals')->get();
-       //this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->events = Event::whereDate('start_date_time','>=',$this->start_month)->whereDate('end_date_time','<=',$this->end_month)->get();
        return $this->render();
     }
     public function nextMonth($id){
@@ -42,7 +42,7 @@ class MonthCalendar extends Component
        //dd($this->end_week);
        $this->month_dates =  CarbonPeriod::create($this->start_month,$this->end_month)->toArray();
        $this->times = Time::with('timeintervals')->get();
-       //this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->events = Event::whereDate('start_date_time','>=',$this->start_month)->whereDate('start_date_time','<=',$this->end_month)->get();
        return $this->render();
     }
 

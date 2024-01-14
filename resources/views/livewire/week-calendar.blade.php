@@ -1,4 +1,4 @@
-<div>
+  <div>
   <div class="mycalender_wrap">
     <div class="my_calender">
       <div class="custom_container">
@@ -12,11 +12,11 @@
 									<button wire:click="nextWeek('{{$start_week}}')"><span class="arrow"><img src="{{asset('site/images/my-calender/icon_rgt_arrow.svg')}}"
 											alt="icon arrow rgt" /></span>
 								</div>
-								<div class="date">{{$start_week}} - {{date('Y-m-d',strtotime('+6 day',strtotime($start_week)))}}</div>
+								<div class="date">{{date('d F',strtotime($start_week))}} - {{date('d F',strtotime('+6 day',strtotime($start_week)))}}, {{date('Y',strtotime($start_week))}}</div>
 							</div>
 							<div class="rightsec">
 								<div class="filter_by">
-									<select class="ui search dropdown dropdownmenu select-style" id="selectField">
+									<select class="ui search dropdown dropdownmenu select-style" id="selectField" onchange="getFilters()">
 										<option value="1">Day</option>
 										<option value="2" selected>Week</option>
 										<option value="3">Month</option>

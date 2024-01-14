@@ -11,6 +11,8 @@
         @livewire('day-calendar')
     @elseif($value == "month")
         @livewire('month-calendar')
+    @elseif($value == "year")
+            @livewire('year-calendar')
     @endif
   </div>
 </div>

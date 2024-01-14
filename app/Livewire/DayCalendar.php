@@ -9,7 +9,7 @@ use App\Models\Event;
 class DayCalendar extends Component
 {
 
-    public $today,$yesterday,$times,$events;
+    public $today,$yesterday,$times,$events,$filters;
 
     protected $listeners = ['some-event' => '$refresh'];
 
@@ -18,6 +18,7 @@ class DayCalendar extends Component
       $this->yesterday = Carbon::now()->subday();
       $this->times = Time::with('timeintervals')->get();
       $this->events = Event::whereDate('start_date_time',$this->today)->get();
+      $this->filters = [1,2,3,4];
 
     }
 
@@ -26,6 +27,7 @@ class DayCalendar extends Component
        $this->today = date('Y-m-d',strtotime('-1 day',strtotime($id)));
        $this->times = Time::with('timeintervals')->get();
        $this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->filters = [1,2,3,4];
        return $this->render();
     }
 
@@ -34,6 +36,7 @@ class DayCalendar extends Component
        $this->today = date('Y-m-d',strtotime('+1 day',strtotime($id)));
        $this->times = Time::with('timeintervals')->get();
        $this->events = Event::whereDate('start_date_time',$this->today)->get();
+       $this->filters = [1,2,3,4];
        return $this->render();
     }
 

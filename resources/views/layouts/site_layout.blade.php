@@ -19,8 +19,8 @@
 	<link rel="stylesheet" href="{{asset('site/css/main.css')}}">
 	<link rel="stylesheet" href="{{asset('site/css/my-calender/my-calender.css')}}">
 	<!-- Owl Stylesheets -->
-	<link rel="stylesheet" href="js/owl.carousel.min.css">
-	<link rel="stylesheet" href="js/owl.theme.default.min.css">
+	<link rel="stylesheet" href="{{ asset('site/js/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('site/js/owl.theme.default.min.css')}}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" />
    @livewireStyles
 </head>
@@ -70,14 +70,15 @@
   </script>
   <script>
   	$(function () {
-  	//	$('.c_data').hide();
-  	//	$('.d1').show();
-  		$('#selectField').on("change", function () {
+
+  		//$('.c_data').hide();
+  		$('.d1').show();
+  		/*$('#selectField').on("change", function () {
   		//	$('.c_data').hide();
 				var val = $(this).val();
-				//alert(val);
+			  alert(val);
 				if(val == 2){
-					alert("hi");
+					//alert("hi");
 					 window.location.href="{{url('calendar/week')}}";
 				}else if(val == 1){
 					//alert("hi");
@@ -87,11 +88,34 @@
 					//alert("hi");
 					window.location.href="{{url('calendar/month')}}";
 				}
-  			$('.d' + $(this).val()).show();
-  		});
+				else if(val == 4){
+					//alert("hi");
+					window.location.href="{{url('calendar/year')}}";
+				}
+
+  		});*/
   	});
+		function getFilters(){
+      var val = document.getElementById('selectField').value;
+			if(val == 2){
+				//alert("hi");
+				 window.location.href="{{url('calendar/week')}}";
+			}else if(val == 1){
+				//alert("hi");
+				window.location.href="{{url('calendar/day')}}";
+			}
+			else if(val == 3){
+				//alert("hi");
+				window.location.href="{{url('calendar/month')}}";
+			}
+			else if(val == 4){
+				//alert("hi");
+				window.location.href="{{url('calendar/year')}}";
+			}
+    }
 
   	$(document).ready(function () {
+
   		$(".slot_selected .slot_btn").click(function () {
   			$(this).toggleClass("active");
   			$(".slot_selected .slot_popup").toggleClass("show");

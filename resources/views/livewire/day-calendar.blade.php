@@ -1,21 +1,23 @@
 <div>
   <div class="calender_topsec">
     <div class="leftsec">
-      <span class="search_by">This Week</span>
+      <span class="search_by">This </span>
       <div class="arrow_box">
         <button wire:click="prevDay('{{$today}}')"><span class="arrow"><img src="{{asset('site/images/my-calender/icon_lft_arrow.svg')}}" alt="icon arrow left" /></span></button>
         <button wire:click="nextDay('{{$today}}')">  <span class="arrow"><img src="{{asset('site/images/my-calender/icon_rgt_arrow.svg')}}"alt="icon arrow rgt" /></span></button>
       </div>
 
-      <div class="date">{{$today}} </div>
+      <div class="date">{{date('d F, Y',strtotime($today))}} </div>
     </div>
     <div class="rightsec">
       <div class="filter_by">
-        <select class="ui search dropdown dropdownmenu select-style" id="selectField">
+        <select class="ui search dropdown dropdownmenu select-style" id="selectField" onchange="getFilters()">
+
           <option value="1" selected>Day</option>
           <option value="2">Week</option>
           <option value="3">Month</option>
           <option value="4">year</option>
+
         </select>
       </div>
       <span class="time"><img src="{{asset('site/images/my-calender/icon_countdown.svg')}}" alt="icon time" />
@@ -48,7 +50,7 @@
                  $end_time = date('h:ia',strtotime($event->end_date_time));
                  $time_interval = $start_time.'-'.$end_time;
               @endphp
-             
+
             @if($time_interval == $interval->time_interval)
             <span class="b_time lightprpl full_height show">{{$event->meeting_address}}</span>
             @else
@@ -144,5 +146,8 @@
     </div>
     <!--day_calender end -->
   </div>
+  <script>
+
+  </script>
 
 </div>
