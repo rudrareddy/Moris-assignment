@@ -14,7 +14,7 @@ class DayCalendar extends Component
     protected $listeners = ['some-event' => '$refresh'];
 
     public function mount(){
-      $this->today = Carbon::now()->format('Y-m-d');
+      $this->today = Carbon::now()->format('Y-m-18');
       $this->yesterday = Carbon::now()->subday();
       $this->times = Time::with('timeintervals')->get();
       $this->events = Event::whereDate('start_date_time',$this->today)->get();
@@ -37,6 +37,11 @@ class DayCalendar extends Component
        $this->events = Event::whereDate('start_date_time',$this->today)->get();
        $this->filters = [1,2,3,4];
        return $this->render();
+    }
+
+    public function updateEvent(){
+      //dd($id);
+
     }
 
     public function render()

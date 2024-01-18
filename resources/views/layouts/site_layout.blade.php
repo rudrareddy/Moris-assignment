@@ -38,6 +38,8 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
+	  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
   	$(".dropdownmenu").dropdown();
   	$("#clientvalue").change(function () {
@@ -113,6 +115,64 @@
 				window.location.href="{{url('calendar/year')}}";
 			}
     }
+
+	/*	let root = document.querySelector(['drag-root']);
+		let a =document.querySelectorAll("[drag-item]");
+		a.forEach(el =>{
+				el.addEventListener('dragstart',e =>{
+					     console.log('start');
+							 e.target.setAttribute('dragging',true)
+				});
+
+
+
+				el.addEventListener('dragenter',e =>{
+						e.preventDefault()
+				});
+
+				el.addEventListener('dragover',(e) =>{
+					 console.log('over');
+						e.preventDefault()
+				});
+
+				el.addEventListener('dragleave',e =>{
+						console.log('leave');
+						//e.preventDefault()
+				});
+
+				el.addEventListener('dragend',e =>{
+					  console.log('end');
+						e.target.setAttribute('dragging',false)
+
+				});
+
+				el.addEventListener('drop',e =>{
+						 let draggingEl = root.querySelector(['dragging']);
+						 e.target.before(draggingEl);
+				});
+		});*/
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+  //document.getElementById("demo").innerHTML = "Started to drag the text";
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("Text");
+	//alert(data);
+  event.target.appendChild(document.getElementById(data));
+	let component = Livewire.find(
+	//	event.target.closest('[wire\\:id]').getAttribute('wire:id')
+	);
+	component.call('updateEvent');
+  //document.getElementById("demo").innerHTML = "The text was dropped";
+}
+
+
 
   	$(document).ready(function () {
 

@@ -228,6 +228,8 @@
                            @endif
                            @endforeach
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Tue")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 5 && $loop->index <= 11)
@@ -242,6 +244,8 @@
                            @endif
                            @endforeach
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Wed")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 4 && $loop->index <= 10)
@@ -256,6 +260,8 @@
                            @endif
                            @endforeach
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Thu")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 3 && $loop->index <= 9)
@@ -270,6 +276,7 @@
                            @endif
                            @endforeach
                            @endif
+
                            @if(date('D',strtotime($start_month)) == "Fri")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 2 && $loop->index <= 8)
@@ -284,6 +291,7 @@
                            @endif
                            @endforeach
                            @endif
+
                            @if(date('D',strtotime($start_month)) == "Sat")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 1 && $loop->index <= 7)
@@ -526,6 +534,8 @@
                            <div class="td"><span class="date"></span></div>
                            @endfor
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Mon")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 27 )
@@ -555,6 +565,8 @@
                            <div class="td"><span class="date"></span></div>
                            @endfor
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Tue")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 26)
@@ -573,6 +585,8 @@
                            <div class="td"><span class="date"></span></div>
                            @endfor
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Wed")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 25)
@@ -602,6 +616,8 @@
                            <div class="td"><span class="date"></span></div>
                            @endfor
                            @endif
+
+
                            @if(date('D',strtotime($start_month)) == "Thu")
                            @foreach($month_dates as $date)
                            @if($loop->index >= 24 )

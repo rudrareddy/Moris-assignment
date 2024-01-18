@@ -46,7 +46,7 @@
                         <div class="make_booking">
                            <div class="column th">{{date('d D',strtotime($i.'day',strtotime($start_week)))}}</div>
                            @foreach($times as $time)
-                           <div class="column">
+                           <div class="column" wire:sortable="updateTaskOrder">
                               <div class="td2">
                                  @foreach($time->timeintervals as $interval)
                                  @foreach($events as $event)

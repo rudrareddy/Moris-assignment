@@ -6,7 +6,7 @@
             <button wire:click="prevDay('{{$today}}')"><span class="arrow"><img src="{{asset('site/images/my-calender/icon_lft_arrow.svg')}}" alt="icon arrow left" /></span></button>
             <button wire:click="nextDay('{{$today}}')">  <span class="arrow"><img src="{{asset('site/images/my-calender/icon_rgt_arrow.svg')}}"alt="icon arrow rgt" /></span></button>
          </div>
-         <div class="date">{{date('d F, Y',strtotime($today))}} </div>
+         <div class="date">{{date('D,d F, Y',strtotime($today))}} </div>
       </div>
       <div class="rightsec">
          <div class="filter_by">
@@ -37,24 +37,29 @@
          </div>
          <div class="make_booking">
             <div class="column th">{{date('d F, Y',strtotime($today))}}</div>
+
             @foreach($times as $time)
-            <div class="column">
-               <div class="td">
+            <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)" >
+               <div class="td droptarget" >
                   @foreach($time->timeintervals as $interval)
-                  @foreach($events as $event)
-                  @php
-                  $start_time = date('h:ia',strtotime($event->start_date_time));
-                  $end_time = date('h:ia',strtotime($event->end_date_time));
-                  $time_interval = $start_time.'-'.$end_time;
-                  @endphp
-                  @if($time_interval == $interval->time_interval)
-                  <span class="b_time lightprpl full_height show">{{$event->meeting_address}}</span>
-                  @else
-                  <span class="b_time pink2">{{$interval->time_interval}}</span>
-                  @endif
+                    @foreach($events as $event)
+                    @php
+                    $start_time = date('h:ia',strtotime($event->start_date_time));
+                    $end_time = date('h:ia',strtotime($event->end_date_time));
+                    $time_interval = $start_time.'-'.$end_time;
+                    @endphp
+                    @if($time_interval == $interval->time_interval)
+                     <span   ondragstart="dragStart(event)" wire:key="{{$event->id}}" draggable="true" id="dragtarget"  class="drag-item b_time lightprpl full_height show" >{{$event->meeting_address}}</span>
+                    @else
+                     <span draggable="true" class="b_time pink2">{{$interval->time_interval}}</span>
+                    @endif
+                    @endforeach
+                      <span draggable="true" class="b_time pink2">{{$interval->time_interval}}</span>
                   @endforeach
-                  <span class="b_time pink2">{{$interval->time_interval}}</span>
-                  @endforeach
+
+               </div>
+               <div class="td droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                </div>
                <!--<div class="td2">
                   <span class="b_time lightprpl full_height">Design Team Metting</span>
@@ -136,9 +141,10 @@
                   </div>-->
             </div>
             @endforeach
+
          </div>
       </div>
       <!--day_calender end -->
    </div>
-   <script></script>
+
 </div>
